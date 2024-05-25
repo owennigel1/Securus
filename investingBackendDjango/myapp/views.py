@@ -16,40 +16,33 @@ firebase_admin.initialize_app(cred)
 
 db = firestore.client()
 
-def add_calculation(request):
+def add_employee(request):
     if request.method == 'POST':
         try:
-            num1 = float(request.POST.get('num1'))
-            num2 = float(request.POST.get('num2'))
-            operation = request.POST.get('operation')
-            
-            if operation == 'add':
-                result = num1 + num2
-            elif operation == 'subtract':
-                result = num1 - num2
-            elif operation == 'multiply':
-                result = num1 * num2
-            elif operation == 'divide':
-                result = num1 / num2
-            else:
-                return JsonResponse({'error': 'Invalid operation'}, status=400)
-            
-            # Store calculation result in Firestore
-            doc_ref = db.collection('calculations').document()
+            name = request.POST.get('name')
+            position = request.POST.get('position')
+            basic_salary = float(request.POST.get('basic_salary'))
+            allowances = float(request.POST.get('allowances'))
+
+            total_salary = basic_salary + allowances
+
+            # Store employee data in Firestore
+            doc_ref = db.collection('employees').document()
             doc_ref.set({
-                'num1': num1,
-                'num2': num2,
-                'operation': operation,
-                'result': result
+                'name': name,
+                'position': position,
+                'basic_salary': basic_salary,
+                'allowances': allowances,
+                'total_salary': total_salary
             })
             
-            return JsonResponse({'result': result})
+            return JsonResponse({'message': 'Employee added successfully', 'total_salary': total_salary}, status=201)
         except (ValueError, TypeError):
             return JsonResponse({'error': 'Invalid input'}, status=400)
 
-def get_calculations(request):
+def get_employees(request):
     if request.method == 'GET':
-        calculations_ref = db.collection('calculations')
-        docs = calculations_ref.stream()
-        calculations = [{'id': doc.id, 'data': doc.to_dict()} for doc in docs]
-        return JsonResponse({'calculations': calculations}, status=200)
+        employees_ref = db.collection('employees')
+        docs = employees_ref.stream()
+        employees = [{'id': doc.id, 'data': doc.to_dict()} for doc in docs]
+        return JsonResponse({'employees': employees}, status=200)
