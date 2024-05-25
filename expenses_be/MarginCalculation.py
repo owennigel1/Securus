@@ -34,9 +34,4 @@ def Margin(name):
             elif key in ("savings", "investments"):
                 Status[key] = 0
 
-    print(Margin)
-    print(Status)
-
     return Margin, Status
-
-Margin("owen")

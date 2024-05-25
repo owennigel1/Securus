@@ -1,3 +1,3 @@
-from expenses_be.Classes import Expense
+from Classes import Expense
 from MarginCalculation import *
 
