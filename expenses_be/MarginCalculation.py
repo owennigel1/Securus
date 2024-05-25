@@ -1,21 +1,21 @@
-#taking out the prerequisite CPF and investment + saving CUTOFF
+from firebase_func import *
 
+def Margin(name):
+    incomeSegments = {needs:0.5, wants:0.3, savings:0.1, investments:0.1}
+    
+    expenses = FirebaseRead("expenses", name)
+    income = FirebaseRead("income", name)
+    for key in incomeSegments:
+        incomeSegments[key] *= income
 
-income = income
+    needs_categories = ["insurance", "bills", "food", "transport", "personal care", "education"]
+    wants_categories = ["services", "shopping", "travel", "entertainment"]
 
-TaxBracket = {
-    20000:0,
-    30000:0.02,
+    needs = sum(expenses[key] for key in needs_categories if key in expenses)
+    wants = sum(expenses[key] for key in wants_categories if key in expenses)
+    savings = (income - needs - wants)/2
+    investments = (income - needs - wants)/2
+
     
 
-
-
-    1000000:.24
-}
-
-
-
-
-def AfterCPF():
-    income  *= 0.8
 
