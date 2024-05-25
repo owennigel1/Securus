@@ -18,8 +18,10 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import include, path
+from myapp.views import calculate_retirement
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('myapp/', include('myapp.urls')),
+    path('calculate_retirement/', calculate_retirement, name='calculate_retirement')
 ]
