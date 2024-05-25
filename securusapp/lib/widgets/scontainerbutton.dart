@@ -3,8 +3,14 @@ import 'package:flutter/material.dart';
 class SContainerButton extends StatefulWidget {
   final double width;
   final double height;
+  final String title;
+  final bool selected;
   const SContainerButton(
-      {super.key, required this.width, required this.height});
+      {super.key,
+      required this.width,
+      required this.height,
+      required this.title,
+      this.selected = false});
 
   @override
   State<SContainerButton> createState() => _SContainerButtonState();
@@ -13,12 +19,36 @@ class SContainerButton extends StatefulWidget {
 class _SContainerButtonState extends State<SContainerButton> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: widget.width,
-      height: widget.height,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.0),
-          border: Border.all(color: const Color(0xffA7A7A7), width: 2.0)),
+    return AnimatedScale(
+      scale: widget.selected ? 1.02 : 1.0,
+      duration: const Duration(milliseconds: 120),
+      curve: Curves.easeOut,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 120),
+        curve: Curves.easeOut,
+        width: widget.width,
+        height: widget.height,
+        padding: const EdgeInsets.all(12.0),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10.0),
+            border: widget.selected
+                ? Border.all(
+                    color: const Color.fromARGB(255, 103, 218, 26), width: 2.0)
+                : Border.all(color: const Color(0xffA7A7A7), width: 2.0)),
+        child: Row(
+          children: [
+            Column(
+              children: [
+                Text(
+                  widget.title,
+                  style: const TextStyle(
+                      fontSize: 22.0, fontWeight: FontWeight.bold),
+                )
+              ],
+            )
+          ],
+        ),
+      ),
     );
   }
 }
