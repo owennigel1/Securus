@@ -61,11 +61,11 @@ class _HomeScreenState extends State<HomeScreen> {
         body: PageView(
           physics: const NeverScrollableScrollPhysics(),
           controller: _pageController,
-          children: [
-            const ExpenditureScreen(),
-            const ExpenditureScreen(),
-            const ExpenditureScreen(),
-            const ExpenditureScreen(),
+          children: const [
+            DashboardScreen(),
+            ExpenditureScreen(),
+            ExpenditureScreen(),
+            ExpenditureScreen(),
           ],
         ));
   }
