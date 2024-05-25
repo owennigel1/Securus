@@ -13,12 +13,16 @@ class QuestionnaireScreen extends StatefulWidget {
 }
 
 class _QuestionnaireScreenState extends State<QuestionnaireScreen> {
-  double _currentAge = 40;
   int _pageIndex = 0;
-  PageController _pageController = PageController();
+  final PageController _pageController = PageController();
 
+  // age selection form
   late StateMachineController _riveController;
   late SMINumber _riveTrigger;
+  double _currentAge = 40;
+
+  // retirement goals
+  int _selectedGoal = 1;
 
   void _onInit(Artboard artboard) {
     _riveController = StateMachineController.fromArtboard(artboard, 'main')
@@ -39,7 +43,7 @@ class _QuestionnaireScreenState extends State<QuestionnaireScreen> {
     List<String> titles = [
       "Tell us more about yourself",
       "Link your financial account",
-      "What are your retirement goals"
+      "What are your retirement goals?"
     ];
 
     return Scaffold(
@@ -67,7 +71,6 @@ class _QuestionnaireScreenState extends State<QuestionnaireScreen> {
               children: [
                 Column(
                   children: [
-                    // const RiveAnimation.asset("assets/anim/age_form.riv"),
                     SizedBox(
                       width: 300.0,
                       height: 300.0,
@@ -105,13 +108,41 @@ class _QuestionnaireScreenState extends State<QuestionnaireScreen> {
                 const Column(
                   children: [SButton(title: "Link bank account")],
                 ),
-                const Column(
+                Column(
                   children: [
-                    SContainerButton(width: 340.0, height: 150.0),
-                    SizedBox(height: 20.0),
-                    SContainerButton(width: 340.0, height: 150.0),
-                    SizedBox(height: 20.0),
-                    SContainerButton(width: 340.0, height: 150.0),
+                    const SizedBox(height: 3.0),
+                    GestureDetector(
+                      onTap: () => setState(() {
+                        _selectedGoal = 0;
+                      }),
+                      child: SContainerButton(
+                          width: 350.0,
+                          height: 150.0,
+                          title: "Essential",
+                          selected: _selectedGoal == 0),
+                    ),
+                    const SizedBox(height: 20.0),
+                    GestureDetector(
+                      onTap: () => setState(() {
+                        _selectedGoal = 1;
+                      }),
+                      child: SContainerButton(
+                          width: 350.0,
+                          height: 150.0,
+                          title: "Comfortable",
+                          selected: _selectedGoal == 1),
+                    ),
+                    const SizedBox(height: 20.0),
+                    GestureDetector(
+                      onTap: () => setState(() {
+                        _selectedGoal = 2;
+                      }),
+                      child: SContainerButton(
+                          width: 350.0,
+                          height: 150.0,
+                          title: "Enhanced",
+                          selected: _selectedGoal == 2),
+                    )
                   ],
                 )
               ],

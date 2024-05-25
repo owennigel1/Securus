@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:securusapp/screens/questionnaire.dart';
 import 'package:securusapp/widgets/sappbar.dart';
 import 'package:securusapp/widgets/sbutton.dart';
+import 'package:securusapp/widgets/sdateselector.dart';
 import 'package:securusapp/widgets/sinputfield.dart';
 
 class AuthScreen extends StatefulWidget {
@@ -70,6 +71,7 @@ class _AuthScreenState extends State<AuthScreen> {
                       secret: true,
                     ),
                   ]),
+                  const Column(children: [])
                 ],
               ),
             ),
@@ -79,9 +81,9 @@ class _AuthScreenState extends State<AuthScreen> {
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 50.0),
                   child: SButton(
-                    title: pageIndex <= 1 ? "Proceed" : "Create account",
+                    title: pageIndex <= 2 ? "Proceed" : "Create account",
                     onTap: () {
-                      if (pageIndex >= 2) {
+                      if (pageIndex >= 3) {
                         Navigator.of(context).push(CupertinoPageRoute(
                             builder: (context) => const QuestionnaireScreen()));
                       }
