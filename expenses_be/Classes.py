@@ -37,3 +37,25 @@ class Expense:
         total = self.get_total_expense()
         return f"Expense Overview:\n{summary}\nTotal: ${total:.2f}"
     
+class Income:
+    def __init__(self, amount=0.0):
+        self.amount = {"amount":amount}
+
+    def set_amount(self, amount):
+        if amount < 0:
+            raise ValueError("Amount cannot be negative.")
+        self.amount["amount"] = amount
+
+    def get_amount(self):
+        return self.amount
+
+    def update_amount(self, amount):
+        if amount < 0:
+            raise ValueError("Amount cannot be negative.")
+        self.amount["amount"] += amount
+
+    def __str__(self):
+        return f"Income: ${self.amount:.2f}"
+
+
+    
