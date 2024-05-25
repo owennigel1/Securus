@@ -10,14 +10,26 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final PageController _pageController = PageController();
+  int _pageIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _pageIndex,
           unselectedItemColor: const Color.fromARGB(255, 124, 124, 124),
           selectedItemColor: const Color.fromARGB(255, 149, 203, 105),
           unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
           selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
+          onTap: (value) {
+            _pageController.animateToPage(value,
+                duration: const Duration(milliseconds: 220),
+                curve: Curves.decelerate);
+            setState(() {
+              _pageIndex = value;
+            });
+          },
           items: const [
             BottomNavigationBarItem(
               icon: Icon(
@@ -46,6 +58,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 label: "Profile"),
           ],
         ),
-        body: const ExpenditureScreen());
+        body: PageView(
+          physics: const NeverScrollableScrollPhysics(),
+          controller: _pageController,
+          children: [
+            const ExpenditureScreen(),
+            const ExpenditureScreen(),
+            const ExpenditureScreen(),
+            const ExpenditureScreen(),
+          ],
+        ));
   }
 }

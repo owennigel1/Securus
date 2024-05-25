@@ -1,6 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:rive/rive.dart';
+import 'package:securusapp/screens/dashboard.dart';
+import 'package:securusapp/screens/home.dart';
 import 'package:securusapp/widgets/sappbar.dart';
 import 'package:securusapp/widgets/sbutton.dart';
 import 'package:securusapp/widgets/scontainerbutton.dart';
@@ -50,7 +53,7 @@ class _QuestionnaireScreenState extends State<QuestionnaireScreen> {
       body: Column(
         children: [
           SAppBar(
-            title: titles[_pageIndex],
+            title: titles[_pageIndex % 2],
             titleSize: 22.0,
             height: 210.0,
             onTapBack: () {
@@ -151,7 +154,13 @@ class _QuestionnaireScreenState extends State<QuestionnaireScreen> {
           SButton(
               title: "Proceed",
               onTap: () {
-                if (_pageIndex >= 2) return;
+                if (_pageIndex >= 2) {
+                  Navigator.of(context).pushAndRemoveUntil(
+                      CupertinoPageRoute(
+                          builder: (context) => const HomeScreen()),
+                      (route) => false);
+                }
+
                 _pageController.nextPage(
                     duration: const Duration(milliseconds: 220),
                     curve: Curves.easeInOutCubic);

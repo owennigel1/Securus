@@ -5,13 +5,15 @@ class SExpenditureBox extends StatefulWidget {
   final Color accent;
   final double amount;
   final String title;
+  final IconData icon;
 
   const SExpenditureBox(
       {super.key,
       required this.color,
       required this.accent,
       required this.amount,
-      required this.title});
+      required this.title,
+      required this.icon});
 
   @override
   State<SExpenditureBox> createState() => _SExpenditureBoxState();
@@ -37,8 +39,8 @@ class _SExpenditureBoxState extends State<SExpenditureBox> {
                 height: 50.0,
                 decoration:
                     BoxDecoration(shape: BoxShape.circle, color: widget.accent),
-                child: const Icon(
-                  Icons.house_outlined,
+                child: Icon(
+                  widget.icon,
                   size: 28.0,
                 ),
               ),
@@ -50,16 +52,17 @@ class _SExpenditureBoxState extends State<SExpenditureBox> {
             ],
           ),
           const SizedBox(height: 10.0),
-          const Text(
-            "\$1200.0",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0),
+          Text(
+            "\$${widget.amount.toStringAsFixed(1)}",
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0),
           ),
           const SizedBox(height: 4.0),
-          const Padding(
-            padding: EdgeInsets.only(left: 2.0),
+          Padding(
+            padding: const EdgeInsets.only(left: 2.0),
             child: Text(
-              "Needs",
-              style: TextStyle(fontWeight: FontWeight.normal, fontSize: 14.0),
+              widget.title,
+              style: const TextStyle(
+                  fontWeight: FontWeight.normal, fontSize: 14.0),
             ),
           )
         ],
