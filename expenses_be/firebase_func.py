@@ -6,10 +6,10 @@ cred = credentials.Certificate("/Users/darrick/Desktop/securus-hacksg-firebase-a
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 
-def FirebaseRead(type,name):
+def FirebaseRead(collection,document):
     try:
         # Retrieve data from Firestore
-        doc_ref = db.collection(type).document(name)
+        doc_ref = db.collection(collection).document(document)
         doc = doc_ref.get()
         if doc.exists:
             print("Document data:", doc.to_dict())
@@ -21,28 +21,28 @@ def FirebaseRead(type,name):
         print(f"An error occurred while reading the document: {e}")
         return None
 
-def FirebaseInsert(type, name, data):
+def FirebaseInsert(collection, document, data):
     try:
         # Insert data into Firestore
-        doc_ref = db.collection(type).document(name)
+        doc_ref = db.collection(collection).document(document)
         doc_ref.set(data)
         print("Data inserted successfully!")
     except Exception as e:
         print(f"An error occurred while inserting the document: {e}")
 
-def FirebaseUpdate(type, name, updates):
+def FirebaseUpdate(collection, document, updates):
     try:
         # Update data in Firestore
-        doc_ref = db.collection(type).document(name)
+        doc_ref = db.collection(collection).document(document)
         doc_ref.update(updates)
         print("Data updated successfully!")
     except Exception as e:
         print(f"An error occurred while updating the document: {e}")
 
-def FirebaseDelete(type, name):
+def FirebaseDelete(collection, document):
     try:
         # Reference to the document to be deleted
-        doc_ref = db.collection(type).document(name)
+        doc_ref = db.collection(collection).document(document)
 
         # Delete the document
         doc_ref.delete()
