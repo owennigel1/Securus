@@ -109,7 +109,17 @@ class _QuestionnaireScreenState extends State<QuestionnaireScreen> {
                   ],
                 ),
                 const Column(
-                  children: [SButton(title: "Link bank account")],
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: 20.0, right: 20.0, bottom: 30.0),
+                      child: Text(
+                        "We’ll need some financial information from your preferred bank provider.",
+                        style: TextStyle(fontSize: 16.0),
+                      ),
+                    ),
+                    SButton(title: "Link bank account")
+                  ],
                 ),
                 Column(
                   children: [
