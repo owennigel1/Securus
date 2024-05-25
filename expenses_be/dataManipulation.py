@@ -17,8 +17,11 @@ if __name__ == "__main__":
 
 if __name__ == "__main__":
     income = Income()
-    income.set_amount(200000.0)
+    income.set_amount(15000.0)
 
     # Insert data into Firestore
-    FirebaseDelete("income", "owen")
+    FirebaseInsert("income", "owen", income.get_amount())
+    FirebaseInsert("expense", "owen", expense_data)
 
+FirebaseRead("expense", "owen")
+FirebaseRead("income", "owen")
