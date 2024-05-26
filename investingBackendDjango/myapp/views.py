@@ -100,6 +100,12 @@ def calculate_retirement(request):
             income = user_data.get('assets',{}).get('income',5000)
             savings = user_data.get('assets',{}).get('savings',20000)
             
+            #breakdown 4 dashboard items
+            need = income*0.5
+            wants = income*0.3
+            savings = income*0.1
+            investments = income*0.1
+            
         
             #age and time related
             today = datetime.today()
@@ -117,13 +123,33 @@ def calculate_retirement(request):
             expenses_after_adjustment_yearly = expenses_after_adjustment*12
             balance=0
             
+            # # Calculate the expected return of the optimized portfolio
+            # optimized_return = np.dot(mean_returns.values, optimal_weights)
+            # optimized_return
+            
+            count=0
+            first = 1
+            age_money_run_out = 0
             a = initial_retirement_asset
             b = expenses_after_adjustment_yearly
-            
-            for i in range(retirement_age-current_age):
+            for i in range(years_in_retirement):
+                count+=1
                 balance = a - b
+                if balance<0 and first:
+                    first = 0
+                    age_money_run_out = current_age + count
                 a = balance
                 b *= 1.03
+            
+            if age_money_run_out==0:
+                money_run_out_bool = 0
+            else:
+                money_run_out_bool = 1
+                
+            
+                
+            
+                
             
 
             # Store the result back in Firestore
@@ -135,6 +161,13 @@ def calculate_retirement(request):
             doc_ref.update({'total_expenses_after_adjustment': expenses_after_adjustment})
             doc_ref.update({'initial_retirement_assets': initial_retirement_asset})
             doc_ref.update({'balance': balance})
+            doc_ref.update({'need': need})
+            doc_ref.update({'wants': wants})
+            doc_ref.update({'savings': savings})
+            doc_ref.update({'investmenst': investments})
+            doc_ref.update({'money_run_out_bool': money_run_out_bool})
+            doc_ref.update({'age_money_run_out': age_money_run_out})
+            
             
             results.append({
                 'id': doc.id,
@@ -157,6 +190,12 @@ def calculate_retirement(request):
                 'initial retirement assets': initial_retirement_asset,
                 'balance': balance,
                 'portfolio': portfolio.to_dict(orient='records'),
+                'need': need,
+                'wants': wants,
+                'savings': savings,
+                'investmenst': investments,
+                'money_run_out_bool': money_run_out_bool,
+                'age_money_run_out': age_money_run_out
             })
                 
             return JsonResponse({'results': results}, status=200)
