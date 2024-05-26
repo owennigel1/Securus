@@ -9,7 +9,6 @@ Securus is an AI-driven mobile application designed to assist the ageing populat
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 Securus aims to simplify retirement planning for the elderly by providing an intuitive and user-friendly mobile application. Utilizing AI and machine learning, the app offers tailored retirement plans based on individual financial data and goals.
