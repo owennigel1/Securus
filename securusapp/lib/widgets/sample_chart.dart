@@ -10,8 +10,8 @@ class LineChartSample2 extends StatefulWidget {
 
 class _LineChartSample2State extends State<LineChartSample2> {
   List<Color> gradientColors = [
-    const Color.fromARGB(255, 0, 212, 138),
-    const Color.fromARGB(255, 33, 243, 135),
+    const Color.fromARGB(255, 62, 209, 123),
+    const Color.fromARGB(255, 56, 176, 100),
   ];
 
   bool showAvg = false;
@@ -67,13 +67,13 @@ class _LineChartSample2State extends State<LineChartSample2> {
       lineBarsData: [
         LineChartBarData(
           spots: const [
-            FlSpot(0, 1.2),
-            FlSpot(2.6, 1.4),
-            FlSpot(4.9, 3),
-            FlSpot(6.8, 2.5),
-            FlSpot(8, 4),
-            FlSpot(9.5, 4.5),
-            FlSpot(11, 6),
+            FlSpot(0, 2),
+            FlSpot(2.6, 2.8),
+            FlSpot(4.9, 3.6),
+            FlSpot(7, 2.6),
+            FlSpot(8.5, 2.5),
+            FlSpot(9.8, 1.4),
+            FlSpot(11, 1.2),
           ],
           isCurved: true,
           gradient: LinearGradient(

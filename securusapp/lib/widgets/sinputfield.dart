@@ -33,6 +33,7 @@ class SInputField extends StatelessWidget {
         SizedBox(
           width: 350.0,
           child: TextField(
+            obscureText: secret,
             controller: controller,
             onTapOutside: (_) => FocusManager.instance.primaryFocus?.unfocus(),
             decoration: InputDecoration(

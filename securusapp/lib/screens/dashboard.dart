@@ -25,9 +25,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
             Column(
               children: [
                 Transform.translate(
-                  offset: const Offset(-35, 0),
+                  offset: const Offset(-60, 0),
                   child: const Padding(
-                    padding: EdgeInsets.only(top: 20.0),
+                    padding: EdgeInsets.only(top: 15.0),
                     child: Text(
                       "Projected Wealth",
                       style: TextStyle(
@@ -39,15 +39,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ),
                 const Padding(
                   padding: EdgeInsets.only(left: 20.0),
-                  child: Text("\$12,885,886",
+                  child: Text("-\$5,310,816.24",
                       style: TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 40.0)),
                 ),
                 Transform.translate(
-                  offset: const Offset(-80, 2),
+                  offset: const Offset(-55, 2),
                   child: const Padding(
                     padding: EdgeInsets.only(left: 0.0),
-                    child: Text("by 2040",
+                    child: Text("by end of retirement",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 16.0,
@@ -64,23 +64,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 bottom: 20.0,
                 child: Row(
                   children: [
-                    SizedBox(width: 40.0),
+                    SizedBox(width: 18.0),
                     Text(
-                      "2024",
+                      "2025",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 15.0,
                           color: Color(0xff000000)),
                     ),
-                    SizedBox(width: 25.0),
-                    Text(
-                      "2030",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15.0,
-                          color: Color(0xff000000)),
-                    ),
-                    SizedBox(width: 25.0),
+                    SizedBox(width: 22.0),
                     Text(
                       "2035",
                       style: TextStyle(
@@ -88,17 +80,33 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           fontSize: 15.0,
                           color: Color(0xff000000)),
                     ),
-                    SizedBox(width: 25.0),
+                    SizedBox(width: 22.0),
                     Text(
-                      "2040",
+                      "2045",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 15.0,
                           color: Color(0xff000000)),
                     ),
-                    SizedBox(width: 25.0),
+                    SizedBox(width: 22.0),
                     Text(
-                      "2045",
+                      "2055",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15.0,
+                          color: Color(0xff000000)),
+                    ),
+                    SizedBox(width: 22.0),
+                    Text(
+                      "2065",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15.0,
+                          color: Color(0xff000000)),
+                    ),
+                    SizedBox(width: 22.0),
+                    Text(
+                      "2075",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 15.0,
@@ -128,13 +136,58 @@ class _DashboardScreenState extends State<DashboardScreen> {
             child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 20.0),
+                SizedBox(height: 25.0),
                 Padding(
-                  padding: EdgeInsets.only(left: 18.0),
+                  padding: EdgeInsets.only(left: 22.0),
                   child: Text(
-                    "Total Assets",
+                    "Initial Retirement Assets (by 2045)",
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+                  ),
+                ),
+                SizedBox(height: 6.0),
+                Padding(
+                  padding: EdgeInsets.only(left: 22.0),
+                  child: Text(
+                    "\$2,885,886.18",
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0),
+                  ),
+                ),
+                SizedBox(height: 20.0),
+                Padding(
+                  padding: EdgeInsets.only(left: 22.0),
+                  child: Text(
+                    "Initial Monthly Retirement Expenses",
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+                  ),
+                ),
+                SizedBox(height: 6.0),
+                Padding(
+                  padding: EdgeInsets.only(left: 22.0),
+                  child: Text(
+                    "\$13,660.43",
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0),
+                  ),
+                ),
+                SizedBox(height: 20.0),
+                Padding(
+                  padding: EdgeInsets.only(left: 22.0),
+                  child: Text(
+                    "Balance (by end of 2075)",
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+                  ),
+                ),
+                SizedBox(height: 6.0),
+                Padding(
+                  padding: EdgeInsets.only(left: 20.0),
+                  child: Text(
+                    "-\$5,310,816.24",
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0),
                   ),
                 )
               ],

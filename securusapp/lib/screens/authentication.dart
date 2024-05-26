@@ -76,7 +76,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     SInputField(
                       title: "Full Name",
                       placeholder: "Bryan Soong",
-                      controller: passwordFieldController,
+                      controller: nameFieldController,
                     )
                   ]),
                   Column(children: [

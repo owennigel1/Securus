@@ -53,7 +53,7 @@ class _QuestionnaireScreenState extends State<QuestionnaireScreen> {
       body: Column(
         children: [
           SAppBar(
-            title: titles[_pageIndex % 2],
+            title: titles[_pageIndex % 3],
             titleSize: 22.0,
             height: 210.0,
             onTapBack: () {
@@ -132,6 +132,8 @@ class _QuestionnaireScreenState extends State<QuestionnaireScreen> {
                           width: 350.0,
                           height: 150.0,
                           title: "Essential",
+                          description:
+                              "Public transport, cook at home, budget\ntravel, prudent lifestyle.",
                           selected: _selectedGoal == 0),
                     ),
                     const SizedBox(height: 20.0),
@@ -143,6 +145,8 @@ class _QuestionnaireScreenState extends State<QuestionnaireScreen> {
                           width: 350.0,
                           height: 150.0,
                           title: "Comfortable",
+                          description:
+                              "Grab/Taxi, food court and hawker,\neconomoy travel, balanced lifestyle.",
                           selected: _selectedGoal == 1),
                     ),
                     const SizedBox(height: 20.0),
@@ -154,6 +158,8 @@ class _QuestionnaireScreenState extends State<QuestionnaireScreen> {
                           width: 350.0,
                           height: 150.0,
                           title: "Enhanced",
+                          description:
+                              "Personal car, cafes and restaurants,\nbusiness travel, luxury lifestyle.",
                           selected: _selectedGoal == 2),
                     )
                   ],

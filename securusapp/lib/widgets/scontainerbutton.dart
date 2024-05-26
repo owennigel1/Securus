@@ -4,12 +4,14 @@ class SContainerButton extends StatefulWidget {
   final double width;
   final double height;
   final String title;
+  final String description;
   final bool selected;
   const SContainerButton(
       {super.key,
       required this.width,
       required this.height,
       required this.title,
+      required this.description,
       this.selected = false});
 
   @override
@@ -38,11 +40,20 @@ class _SContainerButtonState extends State<SContainerButton> {
         child: Row(
           children: [
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   widget.title,
                   style: const TextStyle(
                       fontSize: 22.0, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 5.0),
+                Padding(
+                  padding: const EdgeInsets.only(right: 2.0),
+                  child: Text(
+                    widget.description,
+                    style: const TextStyle(fontSize: 15.0, height: 1.8),
+                  ),
                 )
               ],
             )
