@@ -193,7 +193,7 @@ def calculate_retirement(request):
                 'need': need,
                 'wants': wants,
                 'savings': savings,
-                'investmenst': investments,
+                'investments': investments,
                 'money_run_out_bool': money_run_out_bool,
                 'age_money_run_out': age_money_run_out
             })
