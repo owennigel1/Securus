@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:securusapp/screens/dashboard.dart';
 import 'package:securusapp/screens/expenditure.dart';
+import 'package:securusapp/screens/investments.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -64,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: const [
             DashboardScreen(),
             ExpenditureScreen(),
-            ExpenditureScreen(),
+            InvestmentsScreen(),
             ExpenditureScreen(),
           ],
         ));
