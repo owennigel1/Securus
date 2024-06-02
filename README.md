@@ -1,6 +1,6 @@
-# Securus - AI-Based Retirement Planning Mobile App Targeted at the Ageing Population
+# Securus - Retirement Planning Mobile App Targeted at the Ageing Population
 
-Securus is an AI-driven mobile application designed to assist the ageing population in planning their retirement effectively. The app leverages machine learning to provide personalized retirement planning advice, helping users secure a financially stable future.
+Securus is a mobile application designed to assist the ageing population in planning their retirement effectively. The app leverages CVXPY,  an open source Python-embedded modelling language for convex optimization problems to optimise our portfolio management system.  Based on inputs such as desired retirement age and choice of lifestyle, we also provide personalised retirement planning advice, helping users secure a financially stable future.
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -17,7 +17,6 @@ Securus aims to simplify retirement planning for the elderly by providing an int
 - **Frontend**: Flutter and XCode (iOS environment)
 - **Backend**: Python Django
 - **Database**: Firestore Firebase
-- **Machine Learning**: Pytorch
 - **Open Source Library**: CVXPY, an open source Python-embedded modeling language for convex optimization problems
 
 ## Features
@@ -36,7 +35,6 @@ Ensure you have the following installed:
 - Python
 - Django
 - Firebase account and Firestore setup
-- Pytorch
 - CVXPY
 
 ### Steps
